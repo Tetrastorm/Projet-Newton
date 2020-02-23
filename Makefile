@@ -26,7 +26,8 @@ CXXFLAGS		=	-Weverything					\
 SRCFILES		=	main.cpp						\
 					PlanetFactory.cpp				\
 					Planet.cpp						\
-					Utils.cpp
+					Utils.cpp						\
+					Debug.cpp
 
 TESTSRC			=
 
@@ -40,7 +41,8 @@ LDDIRS			=
 
 LDFLAGS			=	-lsfml-graphics					\
 					-lsfml-window					\
-					-lsfml-system
+					-lsfml-system					\
+					-lstdc++fs
 
 SRC				=	$(addprefix $(SRCDIR)/, $(SRCFILES))
 OBJ				:=	$(SRC:.c=.o)
