@@ -23,7 +23,9 @@ CFLAGS			=	-Weverything					\
 CXXFLAGS		=	-Weverything					\
 					-std=c++17
 
-SRCFILES		=	main.c
+SRCFILES		=	main.cpp						\
+					PlanetFactory.cpp				\
+					Planet.cpp
 
 TESTSRC			=
 

@@ -1,0 +1,16 @@
+planet_simulator
+unit_tests
+
+*.o
+*.a
+*.so
+
+*.gc*
+
+vgcore.*
+
+CMakeLists.txt
+cmake-build-debug
+
+.idea/
+.vscode/
