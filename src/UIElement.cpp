@@ -19,7 +19,7 @@ bool const &UIElement::IsHidden(void) const
 
 void UIElement::SetIsHidden(bool const &new_value)
 {
-    bool bHidden = new_value;
+    bHidden = new_value;
 }
 
 void UIElement::Tick(float const &delta_time)

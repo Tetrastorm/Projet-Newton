@@ -19,7 +19,7 @@ bool const &InterfaceContainer::IsHidden(void) const
 
 void InterfaceContainer::SetIsHidden(bool const &new_value)
 {
-    bool bHidden = new_value;
+    bHidden = new_value;
 }
 
 void InterfaceContainer::AddElem(std::unique_ptr<UIElement> &elem)
