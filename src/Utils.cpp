@@ -30,3 +30,15 @@ std::shared_ptr<sf::Texture> const &Utils::TextureLoader(std::string const &text
     list_loaded_texture.emplace_back(std::pair<const std::string, std::shared_ptr<sf::Texture>>(texture_path, texture));
     return (list_loaded_texture.back().second);
 }
+
+sf::Vector2<float> &Utils::RelativeToOnScreenPosition(sf::Vector2<float> &position) {
+    position.x *= static_cast<float>(WINDOW_SIZE[0]);
+    position.y *= static_cast<float>(WINDOW_SIZE[1]);
+    return (position);
+}
+sf::Vector2<float> Utils::GetPositionOnScreen(float x, float y) {
+    sf::Vector2<float> position = {x, y};
+    position.x *= static_cast<float>(WINDOW_SIZE[0]);
+    position.y *= static_cast<float>(WINDOW_SIZE[1]);
+    return (position);
+}
