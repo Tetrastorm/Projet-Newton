@@ -9,7 +9,7 @@
 
 UIElement::UIElement(void)
 {
-    bHidden = true;
+    bHidden = false;
 }
 
 bool const &UIElement::IsHidden(void) const
@@ -29,7 +29,7 @@ void UIElement::Tick(float const &delta_time)
 
 void UIElement::Render(sf::RenderWindow &window) const
 {
-    if (bHidden) {
+    if (!bHidden) {
         window.draw(*sprite);
     }
 }

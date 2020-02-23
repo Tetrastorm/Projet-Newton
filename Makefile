@@ -26,7 +26,7 @@ SRCFILES		=	main.cpp						\
 					Planet.cpp						\
 					Utils.cpp						\
 					Debug.cpp						\
-					Interface.cpp					\
+					InterfaceContainer.cpp			\
 					UIElement.cpp
 
 TESTSRC			=

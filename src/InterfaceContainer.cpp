@@ -9,7 +9,7 @@
 
 InterfaceContainer::InterfaceContainer(void)
 {
-    bHidden = true;
+    bHidden = false;
 }
 
 bool const &InterfaceContainer::IsHidden(void) const

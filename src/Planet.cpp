@@ -25,7 +25,7 @@ Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rota
     shape.setPosition(start_position);
     shape.setRotation(start_rotation);
     shape.setScale(start_scale);
-    bHidden = true;
+    bHidden = false;
 }
 
 Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rotation, sf::Vector2<float> const &start_scale, sf::Vector2<float> const &start_speed, std::string const &texture_path, float const &body_mass, float const &rotate_speed)
@@ -45,7 +45,7 @@ Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rota
     shape.setPosition(start_position);
     shape.setRotation(start_rotation);
     shape.setScale(start_scale);
-    bHidden = true;
+    bHidden = false;
 }
 
 bool const &Planet::IsHidden(void) const
