@@ -8,7 +8,7 @@
 #include "Planet.hpp"
 #include "Utils.hpp"
 
-Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rotation, sf::Vector2<float> const &start_scale, sf::Vector2<float> const &start_speed, std::string const &texture_path, float const &body_mass, float const &rotate_speed, std::unique_ptr<Planet> gravity_center)
+Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rotation, sf::Vector2<float> const &start_scale, sf::Vector2<float> const &start_speed, std::string const &texture_path, float const &body_mass, float const &rotate_speed, std::shared_ptr<Planet> &gravity_center)
 {
     sf::FloatRect textRect;
 
@@ -18,7 +18,7 @@ Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rota
     rotateSpeed = rotate_speed;
     mass = body_mass;
     speed = start_speed;
-    gravityCenter = std::move(gravity_center);
+    gravityCenter = gravity_center;
 
     textRect = shape.getLocalBounds();
     shape.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top  + textRect.height / 2.0f);
@@ -27,14 +27,23 @@ Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rota
     shape.setScale(start_scale);
 }
 
-Planet::Planet(Planet const &planet)
+Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rotation, sf::Vector2<float> const &start_scale, sf::Vector2<float> const &start_speed, std::string const &texture_path, float const &body_mass, float const &rotate_speed)
 {
-    texture = planet.texture;
-    shape = planet.shape;
-    rotateSpeed = planet.rotateSpeed;
-    mass = planet.mass;
-    speed = planet.speed;
-    gravityCenter = nullptr; // std::move(planet.gravityCenter);
+    sf::FloatRect textRect;
+
+    texture = Utils::LoadTexture(texture_path);
+    shape = sf::CircleShape(50);
+    shape.setTexture(texture.get());
+    rotateSpeed = rotate_speed;
+    mass = body_mass;
+    speed = start_speed;
+    gravityCenter = nullptr;
+
+    textRect = shape.getLocalBounds();
+    shape.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top  + textRect.height / 2.0f);
+    shape.setPosition(start_position);
+    shape.setRotation(start_rotation);
+    shape.setScale(start_scale);
 }
 
 void Planet::UpdateBody(float const &delta_time)

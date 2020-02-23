@@ -22,17 +22,17 @@ static void event_handling(sf::RenderWindow &window)
     }
 }
 
-static void update_all(std::vector<std::unique_ptr<Planet> > &planet_list, float const &delta_time)
+static void update_all(std::vector<std::shared_ptr<Planet> > &planet_list, float const &delta_time)
 {
-    for (const std::unique_ptr<Planet> &planet : planet_list) {
+    for (const std::shared_ptr<Planet> &planet : planet_list) {
         planet->UpdateBody(delta_time);
     }
 }
 
-static void render_all(sf::RenderWindow &window, std::vector<std::unique_ptr<Planet> > const &planet_list)
+static void render_all(sf::RenderWindow &window, std::vector<std::shared_ptr<Planet> > const &planet_list)
 {
     window.clear(sf::Color(0, 0, 0, 0));
-    for (const std::unique_ptr<Planet> &planet : planet_list) {
+    for (const std::shared_ptr<Planet> &planet : planet_list) {
         planet->Render(window);
     }
     window.display();
@@ -41,7 +41,7 @@ static void render_all(sf::RenderWindow &window, std::vector<std::unique_ptr<Pla
 int main(void)
 {
     unsigned int const WINDOW_SIZE[2] = {800, 600};
-    std::vector<std::unique_ptr<Planet> > planet_list;
+    std::vector<std::shared_ptr<Planet>> planet_list;
     float tick = 1.0f;
     PlanetFactory factory;
 
@@ -54,8 +54,8 @@ int main(void)
     Debug::Log("[Initialisation]\tStart");
     window.setFramerateLimit(60);
     try {
-        planet_list.push_back(factory.MakePlanet(sf::Vector2<float>(static_cast<float>(WINDOW_SIZE[0]) * 0.5f, static_cast<float>(WINDOW_SIZE[1]) * 0.5f), 0.01f, sf::Vector2<float>(1.f, 1.f), sf::Vector2<float>(0.f, 0.f), "resources/planet.png", 100.f, 3.f, nullptr));
-        //planet_list.push_back(factory.MakePlanet(sf::Vector2<float>(static_cast<float>(WINDOW_SIZE[0]) * 0.85f, static_cast<float>(WINDOW_SIZE[1]) * 0.2f), 0.25f, sf::Vector2<float>(0.5f, 0.5f), sf::Vector2<float>(5.f, 0.f), "resources/planet.png", 100.f, 3.f, std::move(planet_list[0])));
+        planet_list.push_back(factory.MakePlanet(sf::Vector2<float>(static_cast<float>(WINDOW_SIZE[0]) * 0.5f, static_cast<float>(WINDOW_SIZE[1]) * 0.5f), 0.01f, sf::Vector2<float>(1.f, 1.f), sf::Vector2<float>(0.f, 0.f), "resources/planet.png", 100.f, 3.f));
+        planet_list.push_back(factory.MakePlanet(sf::Vector2<float>(static_cast<float>(WINDOW_SIZE[0]) * 0.85f, static_cast<float>(WINDOW_SIZE[1]) * 0.2f), 0.25f, sf::Vector2<float>(0.5f, 0.5f), sf::Vector2<float>(5.f, 0.f), "resources/planet.png", 100.f, 3.f, planet_list[0]));
     } catch (std::exception const &e) {
         Debug::Log(ESeverity::Critical, e.what());
         return EXIT_FAILURE;

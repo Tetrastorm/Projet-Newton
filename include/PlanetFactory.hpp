@@ -17,12 +17,19 @@ public:
     PlanetFactory(void) = default;
     ~PlanetFactory(void) = default;
 
-    std::unique_ptr<Planet> MakePlanet(sf::Vector2<float> const &start_position,
+    std::shared_ptr<Planet> MakePlanet(sf::Vector2<float> const &start_position,
                                        float const &start_rotation,
                                        sf::Vector2<float> const &start_scale,
                                        sf::Vector2<float> const &start_speed,
                                        std::string const &texture_path,
                                        float const &body_mass,
                                        float const &rotate_speed,
-                                       std::unique_ptr<Planet> gravity_center);
+                                       std::shared_ptr<Planet> &gravity_center);
+    std::shared_ptr<Planet> MakePlanet(sf::Vector2<float> const &start_position,
+                                       float const &start_rotation,
+                                       sf::Vector2<float> const &start_scale,
+                                       sf::Vector2<float> const &start_speed,
+                                       std::string const &texture_path,
+                                       float const &body_mass,
+                                       float const &rotate_speed);
 };

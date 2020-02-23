@@ -20,8 +20,14 @@ public:
                     std::string const &texture_path,
                     float const &body_mass,
                     float const &rotate_speed,
-                    std::unique_ptr<Planet> gravity_center);
-    Planet(Planet const &planet);
+                    std::shared_ptr<Planet> &gravity_center);
+    explicit Planet(sf::Vector2<float> const &start_position,
+                    float const &start_rotation,
+                    sf::Vector2<float> const &start_scale,
+                    sf::Vector2<float> const &start_speed,
+                    std::string const &texture_path,
+                    float const &body_mass,
+                    float const &rotate_speed);
     ~Planet(void) = default;
 
     void UpdateBody(float const &delta_time);
@@ -33,5 +39,5 @@ private:
     float rotateSpeed;
     float mass;
     sf::Vector2<float> speed;
-    std::unique_ptr<Planet> gravityCenter;
+    std::shared_ptr<Planet> gravityCenter;
 };
