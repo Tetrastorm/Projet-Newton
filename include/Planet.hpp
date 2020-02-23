@@ -31,6 +31,9 @@ public:
                     float const &rotate_speed);
     ~Planet(void) override = default;
 
+    bool const &IsHidden(void) const override;
+    void SetIsHidden(bool const &) override;
+
     void Tick(float const &delta_time) override;
     void Render(sf::RenderWindow &window) const override;
 
@@ -41,4 +44,5 @@ private:
     float mass;
     sf::Vector2<float> speed;
     std::shared_ptr<Planet> gravityCenter;
+    bool bHidden;
 };

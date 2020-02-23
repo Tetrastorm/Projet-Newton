@@ -48,6 +48,7 @@ static void init_planet(std::vector<std::shared_ptr<Planet>> &planet_list)
     planet_list.push_back(factory.MakePlanet(Utils::GetPositionOnScreen(0.5f, 0.5f), 0.01f, sf::Vector2<float>(1.f, 1.f), sf::Vector2<float>(0.f, 0.f), "resources/sun.png", 100.f, 10.f));
     planet_list.push_back(factory.MakePlanet(Utils::GetPositionOnScreen(0.85f, 0.2f), 0.25f, sf::Vector2<float>(0.5f, 0.5f), sf::Vector2<float>(10.f, 50.f), "resources/gaz_planet_1.png", 100.f, 3.25f, planet_list[0]));
     planet_list.push_back(factory.MakePlanet(Utils::GetPositionOnScreen(0.9f, 0.9f), 1.f, sf::Vector2<float>(0.3f, 0.3f), sf::Vector2<float>(40.f, 20.f), "resources/rock_planet_1.png", 100.f, 5.f, planet_list[0]));
+    planet_list.push_back(factory.MakePlanet(Utils::GetPositionOnScreen(0.1f, 0.5f), 1.f, sf::Vector2<float>(0.2f, 0.2f), sf::Vector2<float>(-5.f, 60.f), "resources/gaz_planet_1.png", 100.f, 25.f, planet_list[0]));
     Debug::Log("[Initialisation]\tEnd");
 }
 

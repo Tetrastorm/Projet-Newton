@@ -15,8 +15,11 @@
 
 class InterfaceContainer : public IContainer {
 public:
-    explicit InterfaceContainer(void) = default;
+    explicit InterfaceContainer(void);
     ~InterfaceContainer(void) override = default;
+
+    bool const &IsHidden(void) const override;
+    void SetIsHidden(bool const &) override;
 
     void AddElem(std::unique_ptr<UIElement> &elem);
     void RemoveElem(std::unique_ptr<UIElement> &elem);
@@ -24,4 +27,5 @@ public:
 
 private:
     std::vector<std::unique_ptr<UIElement>> ui_elem_list;
+    bool bHidden;
 };
