@@ -12,7 +12,7 @@ Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rota
 {
     sf::FloatRect textRect;
 
-    texture = Utils::LoadTexture(texture_path);
+    texture = Utils::TextureLoader(texture_path);
     shape = sf::CircleShape(50);
     shape.setTexture(texture.get());
     rotateSpeed = rotate_speed;
@@ -31,7 +31,7 @@ Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rota
 {
     sf::FloatRect textRect;
 
-    texture = Utils::LoadTexture(texture_path);
+    texture = Utils::TextureLoader(texture_path);
     shape = sf::CircleShape(50);
     shape.setTexture(texture.get());
     rotateSpeed = rotate_speed;

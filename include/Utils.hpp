@@ -12,5 +12,5 @@
 #include <SFML/Graphics.hpp>
 
 namespace Utils {
-    std::shared_ptr<sf::Texture> const &LoadTexture(std::string const &texture_path);
+    std::shared_ptr<sf::Texture> const &TextureLoader(std::string const &texture_path);
 };
