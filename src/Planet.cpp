@@ -14,7 +14,7 @@ Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rota
 
     texture = Utils::LoadTexture(texture_path);
     shape = sf::CircleShape(50);
-    shape.setTexture(&texture);
+    shape.setTexture(texture.get());
     rotateSpeed = rotate_speed;
     mass = body_mass;
     speed = start_speed;

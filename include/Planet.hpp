@@ -8,6 +8,7 @@
 #pragma once
 
 #include <exception>
+#include <memory>
 #include <SFML/Graphics.hpp>
 
 class Planet {
@@ -27,7 +28,7 @@ public:
     void Render(sf::RenderWindow &window) const;
 
 private:
-    sf::Texture texture;
+    std::shared_ptr<sf::Texture> texture;
     sf::CircleShape shape;
     float rotateSpeed;
     float mass;

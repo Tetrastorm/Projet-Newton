@@ -68,8 +68,8 @@ $(OBJDIR)/: $(SRCDIR)/%.cpp
 $(NAME): $(OBJ)
 	$(CXX) -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDDIRS) $(LDFLAGS)
 
-debug: CFLAGS += -g3
-debug: CXXFLAGS += -g3
+debug: CFLAGS += -ggdb3
+debug: CXXFLAGS += -ggdb3
 debug: fclean $(NAME)
 
 tests_run: fclean $(TESTOBJ)

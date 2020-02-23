@@ -8,8 +8,9 @@
 #pragma once
 
 #include <string>
+#include <memory>
 #include <SFML/Graphics.hpp>
 
 namespace Utils {
-    sf::Texture &LoadTexture(std::string const &texture_path);
+    std::shared_ptr<sf::Texture> const &LoadTexture(std::string const &texture_path);
 };
