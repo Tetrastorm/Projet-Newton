@@ -46,7 +46,7 @@ Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rota
     shape.setScale(start_scale);
 }
 
-void Planet::UpdateBody(float const &delta_time)
+void Planet::Tick(float const &delta_time)
 {
     shape.rotate(rotateSpeed * delta_time);
     shape.move(speed * delta_time);

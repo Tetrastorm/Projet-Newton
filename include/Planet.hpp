@@ -10,10 +10,11 @@
 #include <exception>
 #include <memory>
 #include <SFML/Graphics.hpp>
+#include "IObject.hpp"
 
-class Planet {
+class Planet : public IObject {
 public:
-    explicit Planet(sf::Vector2<float> const &start_position,
+    Planet(sf::Vector2<float> const &start_position,
                     float const &start_rotation,
                     sf::Vector2<float> const &start_scale,
                     sf::Vector2<float> const &start_speed,
@@ -21,17 +22,17 @@ public:
                     float const &body_mass,
                     float const &rotate_speed,
                     std::shared_ptr<Planet> &gravity_center);
-    explicit Planet(sf::Vector2<float> const &start_position,
+    Planet(sf::Vector2<float> const &start_position,
                     float const &start_rotation,
                     sf::Vector2<float> const &start_scale,
                     sf::Vector2<float> const &start_speed,
                     std::string const &texture_path,
                     float const &body_mass,
                     float const &rotate_speed);
-    ~Planet(void) = default;
+    ~Planet(void) override = default;
 
-    void UpdateBody(float const &delta_time);
-    void Render(sf::RenderWindow &window) const;
+    void Tick(float const &delta_time) override;
+    void Render(sf::RenderWindow &window) const override;
 
 private:
     std::shared_ptr<sf::Texture> texture;
