@@ -17,11 +17,9 @@ CC				=	clang
 
 CXX				=	clang++
 
-CFLAGS			=	-Weverything					\
-					-std=gnu11
+CFLAGS			=	-std=gnu11
 
-CXXFLAGS		=	-Weverything					\
-					-std=c++17
+CXXFLAGS		=	-std=c++17
 
 SRCFILES		=	main.cpp						\
 					PlanetFactory.cpp				\
@@ -69,7 +67,10 @@ $(NAME): $(OBJ)
 	$(CXX) -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDDIRS) $(LDFLAGS)
 
 debug: CFLAGS += -ggdb3
+debug: CFLAGS += -Weverything
 debug: CXXFLAGS += -ggdb3
+debug: CXXFLAGS += -Weverything
+debug: CPPFLAGS += -DDEBUG
 debug: fclean $(NAME)
 
 tests_run: fclean $(TESTOBJ)
