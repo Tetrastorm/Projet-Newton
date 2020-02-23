@@ -9,7 +9,7 @@
 #               Variables
 # ----------------------------------------
 
-NAME			=	planet_simulator
+NAME			=	newton
 
 TESTNAME		=	unit_tests
 
