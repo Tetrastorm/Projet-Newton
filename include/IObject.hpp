@@ -13,6 +13,6 @@ class IObject {
 public:
     virtual ~IObject(void) = default;
 
-    virtual void Tick(float const &delta_time) = 0;
-    virtual void Render(sf::RenderWindow &window) const = 0;
+    virtual void Tick(float const &) = 0;
+    virtual void Render(sf::RenderWindow &) const = 0;
 };
