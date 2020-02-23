@@ -2,10 +2,10 @@
 #include <string>
 #include <exception>
 #include <vector>
-#include <iostream>
 #include "Debug.hpp"
 #include "PlanetFactory.hpp"
 #include "Planet.hpp"
+#include "NewtonType.hpp"
 
 static void event_handling(sf::RenderWindow &window)
 {
@@ -40,7 +40,6 @@ static void render_all(sf::RenderWindow &window, std::vector<std::shared_ptr<Pla
 
 int main(void)
 {
-    unsigned int const WINDOW_SIZE[2] = {800, 600};
     std::vector<std::shared_ptr<Planet>> planet_list;
     float tick = 1.0f;
     PlanetFactory factory;
