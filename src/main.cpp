@@ -51,7 +51,7 @@ int main(void)
     window.setFramerateLimit(60);
     try {
         planet_list.push_back(factory.MakePlanet(sf::Vector2<float>(static_cast<float>(WINDOW_SIZE[0]) * 0.5f, static_cast<float>(WINDOW_SIZE[1]) * 0.5f), 0.01f, sf::Vector2<float>(1.f, 1.f), sf::Vector2<float>(0.f, 0.f), "resources/planet.png", 100.f, 3.f, nullptr));
-        planet_list.push_back(factory.MakePlanet(sf::Vector2<float>(static_cast<float>(WINDOW_SIZE[0]) * 0.85f, static_cast<float>(WINDOW_SIZE[1]) * 0.2f), 0.25f, sf::Vector2<float>(0.5f, 0.5f), sf::Vector2<float>(5.f, 0.f), "resources/planet.png", 100.f, 3.f, std::move(planet_list[0])));
+        //planet_list.push_back(factory.MakePlanet(sf::Vector2<float>(static_cast<float>(WINDOW_SIZE[0]) * 0.85f, static_cast<float>(WINDOW_SIZE[1]) * 0.2f), 0.25f, sf::Vector2<float>(0.5f, 0.5f), sf::Vector2<float>(5.f, 0.f), "resources/planet.png", 100.f, 3.f, std::move(planet_list[0])));
     } catch (std::exception const &e) {
         std::cerr << e.what() << std::endl;
         return EXIT_FAILURE;

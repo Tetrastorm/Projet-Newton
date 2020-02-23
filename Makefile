@@ -25,7 +25,8 @@ CXXFLAGS		=	-Weverything					\
 
 SRCFILES		=	main.cpp						\
 					PlanetFactory.cpp				\
-					Planet.cpp
+					Planet.cpp						\
+					Utils.cpp
 
 TESTSRC			=
 

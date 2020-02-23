@@ -28,7 +28,7 @@ public:
 
 private:
     sf::Texture texture;
-    sf::CircleShape sprite;
+    sf::CircleShape shape;
     float rotateSpeed;
     float mass;
     sf::Vector2<float> speed;
