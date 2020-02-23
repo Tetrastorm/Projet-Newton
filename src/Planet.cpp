@@ -52,8 +52,8 @@ void Planet::UpdateBody(float const &delta_time)
     shape.move(speed * delta_time);
     if (gravityCenter != nullptr) {
         gravityCenter->shape.getPosition();
-        speed.x -= (shape.getPosition().x - gravityCenter->shape.getPosition().x)  * 9.84f * delta_time;
-        speed.y -= (shape.getPosition().y - gravityCenter->shape.getPosition().y)  * 9.84f * delta_time;
+        speed.x -= ((shape.getPosition().x - gravityCenter->shape.getPosition().x) / gravityCenter->shape.getPosition().x) * 9.84f * delta_time;
+        speed.y -= (shape.getPosition().y - gravityCenter->shape.getPosition().y) / gravityCenter->shape.getPosition().y * 9.84f * delta_time;
     }
 }
 
