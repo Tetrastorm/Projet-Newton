@@ -5,6 +5,8 @@ unit_tests
 *.a
 *.so
 
+*.log
+
 *.gc*
 
 vgcore.*
