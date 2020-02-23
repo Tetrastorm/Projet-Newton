@@ -49,6 +49,12 @@ Planet::Planet(sf::Vector2<float> const &start_position, float const &start_rota
 void Planet::UpdateBody(float const &delta_time)
 {
     shape.rotate(rotateSpeed * delta_time);
+    shape.move(speed * delta_time);
+    if (gravityCenter != nullptr) {
+        gravityCenter->shape.getPosition();
+        speed.x -= (shape.getPosition().x - gravityCenter->shape.getPosition().x)  * 9.84f * delta_time;
+        speed.y -= (shape.getPosition().y - gravityCenter->shape.getPosition().y)  * 9.84f * delta_time;
+    }
 }
 
 void Planet::Render(sf::RenderWindow &window) const

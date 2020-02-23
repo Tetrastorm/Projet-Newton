@@ -36,6 +36,7 @@ sf::Vector2<float> &Utils::RelativeToOnScreenPosition(sf::Vector2<float> &positi
     position.y *= static_cast<float>(WINDOW_SIZE[1]);
     return (position);
 }
+
 sf::Vector2<float> Utils::GetPositionOnScreen(float x, float y) {
     sf::Vector2<float> position = {x, y};
     position.x *= static_cast<float>(WINDOW_SIZE[0]);

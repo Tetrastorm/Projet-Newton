@@ -34,4 +34,3 @@ private:
   static std::string GetTime(void);
   static void WriteOnLogFile(std::string const strToPrint);
 };
-
